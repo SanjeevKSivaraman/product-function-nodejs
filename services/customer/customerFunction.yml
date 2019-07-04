@@ -1,0 +1,67 @@
+# Defines an HTTP API endpoint that calls the main function in create.js
+# - path: url path is /customers
+# - method: POST request
+# - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
+#     domain api call
+# - authorizer: authenticate using the AWS IAM role
+create:
+  handler: services/customer/create.main
+  events:
+    - http:
+        path: customers
+        method: post
+        cors: true
+        authorizer: 
+          arn: arn:aws:lambda:us-east-1:128433145321:function:sanjeevAuthFunction
+
+get:
+  # Defines an HTTP API endpoint that calls the main function in get.js
+  # - path: url path is /customers/{id}
+  # - method: GET request
+  handler: services/customer/get.main
+  events:
+    - http:
+        path: customers/{id}
+        method: get
+        cors: true
+        authorizer: 
+          arn: arn:aws:lambda:us-east-1:128433145321:function:sanjeevAuthFunction
+
+list:
+  # Defines an HTTP API endpoint that calls the main function in list.js
+  # - path: url path is /customers
+  # - method: GET request
+  handler: services/customer/list.main
+  events:
+    - http:
+        path: customers
+        method: get
+        cors: true
+        authorizer: 
+          arn: arn:aws:lambda:us-east-1:128433145321:function:sanjeevAuthFunction
+
+update:
+  # Defines an HTTP API endpoint that calls the main function in update.js
+  # - path: url path is /customers/{id}
+  # - method: PUT request
+  handler: services/customer/update.main
+  events:
+    - http:
+        path: customers/{id}
+        method: put
+        cors: true
+        authorizer: 
+          arn: arn:aws:lambda:us-east-1:128433145321:function:sanjeevAuthFunction
+
+delete:
+  # Defines an HTTP API endpoint that calls the main function in delete.js
+  # - path: url path is /customers/{id}
+  # - method: DELETE request
+  handler: services/customer/delete.main
+  events:
+    - http:
+        path: customers/{id}
+        method: delete
+        cors: true
+        authorizer: 
+          arn: arn:aws:lambda:us-east-1:128433145321:function:sanjeevAuthFunction
