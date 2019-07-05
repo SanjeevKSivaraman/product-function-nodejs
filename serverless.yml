@@ -12,7 +12,7 @@ custom:
   # Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
-  customertableName: ${self:custom.stage}-customers
+  customertableName: ${self:service}-${self:custom.stage}-customers
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
@@ -32,7 +32,7 @@ provider:
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableNamePrefix: ${self:custom.stage}
+    tableNamePrefix: ${self:service}-${self:custom.stage}
 
   iamRoleStatements:
     - Effect: Allow

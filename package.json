@@ -1,7 +1,7 @@
 {
-  "name": "product-scaffold-app",
+  "name": "product-function-nodejs-scaffold",
   "version": "1.1.0",
-  "description": "A Node.js starter for developing Serverless application with async/await and unit test support",
+  "description": "A Node.js starter scaffold for developing Serverless application with async/await and unit test support",
   "main": "handler.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://bcgapplabs.visualstudio.com/PlatformPoc/_git/product-function-scaffold"
+    "url": "https://github.com/SanjeevKSivaraman/product-function-nodejs"
   },
   "devDependencies": {
     "aws-sdk": "^2.224.1",

@@ -8,13 +8,13 @@ export async function main(event, context) {
     // - 'userId': Identity Pool identity id of the authenticated user
     // - 'noteId': path parameter
     Key: {
-      userId: event.requestContext.identity.cognitoIdentityId,
-      noteId: event.pathParameters.id
+      customerId: event.pathParameters.id
     }
   };
-
+  
   try {
     const result = await dynamoDbLib.call("get", params);
+    
     if (result.Item) {
       // Return the retrieved item
       return success(result.Item);
